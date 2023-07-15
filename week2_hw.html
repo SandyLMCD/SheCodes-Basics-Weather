@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheCodes Week 2 Homework</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+
+      .normal {
+        font-weight: normal;
+      }
+
+      .dayContainer {
+        text-align: center;
+        padding: 15px;
+        display: block;
+        margin: 0 auto;
+        max-width: 400px;
+      }
+
+      .dayContainer:hover {
+        background-color: lightyellow;
+        margin-left: 220px;
+        margin-right: 220px;
+        margin: 0 auto;
+        max-width: 400px;
+      }
+
+      .currently {
+        color: #1a64d6;
+      }
+
+      .tempLabel {
+        font-weight: normal;
+      }
+
+      button {
+        display: block;
+        margin: 0 auto;
+        padding: 15px;
+        border-radius: 30px;
+        color: white;
+        border: solid 1px #1a64d6;
+        background: #1a64d6;
+        cursor: pointer;
+        transition: all 150ms ease-in-out;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        color: #1a64d6;
+        border: solid 1px #1a64d6;
+        background: white;
+      }
+
+      h4 {
+        font-family: monospace;
+        opacity: 0.7;
+        text-align: center;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- insert weather emoji here -->
+    <h1 class="emoji">🌡️</h1>
+
+    <h1 class="currently">
+      <strong>Currently 21° in the Philippines</strong>
+    </h1>
+    <h1 class="normal">13° / <strong>23°</strong></h1>
+
+    <div class="dayContainer">
+      <h3 class="dayLabel">☁️ Tomorrow</h3>
+      <h3 class="tempLabel">10° / <strong>22°</strong></h3>
+    </div>
+
+    <div class="dayContainer">
+      <h3 class="dayLabel">⛅ Sunday</h3>
+      <h3 class="tempLabel">15° / <strong>17°</strong></h3>
+    </div>
+
+    <div class="dayContainer">
+      <h3 class="dayLabel">🌞 Monday</h3>
+      <h3 class="tempLabel">25° / <strong>28°</strong></h3>
+    </div>
+
+    <button>Change city</button>
+
+    <h4>Coded by Sandy Lumacad</h4>
+    <script>
+      function whenButtonClicked() {
+        let city = prompt("What city are you from?");
+        let temperature = prompt("What is the temperature there?");
+
+        let heading = document.querySelector(".currently");
+        heading.innerHTML = `Currently ${temperature}° in the ${city}`;
+
+        if (temperature > 0) {
+          let emojiHead = document.querySelector(".emoji");
+          emojiHead.innerHTML = "🌞";
+        } else {
+          let emojiHead = document.querySelector(".emoji");
+          emojiHead.innerHTML = "❄️";
+        }
+      }
+
+      let buttonClicked = document.querySelector("button");
+      buttonClicked.addEventListener("click", whenButtonClicked);
+    </script>
+  </body>
+</html>
